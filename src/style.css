@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --bg-main: #000000;
+    --bg-card: #121212;
+    --bg-input: #1e1e1e;
+    --accent-blue: #1E90FF;
+    --accent-green: #39FF14;
+    --text-main: #FFFFFF;
+    --text-sub: #D3D3D3;
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    padding-bottom: 60px;
+}
+
+h1, h2, h3, h4, .brand-logo {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+header {
+    background: #0a0a0a;
+    border-bottom: 2px solid var(--accent-blue);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.brand-logo { color: var(--accent-green); font-size: 1.5rem; text-decoration: none; font-weight: 900; }
+
+nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 1rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+nav a:hover { color: var(--accent-blue); }
+
+.user-badge {
+    background: #181818;
+    border: 1px solid var(--accent-green);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid #222;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.btn-blue {
+    background: var(--accent-blue);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-blue:hover { box-shadow: 0 0 10px var(--accent-blue); }
+
+.btn-green {
+    background: var(--accent-green);
+    color: #000;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-green:hover { box-shadow: 0 0 10px var(--accent-green); }
+
+.btn-danger {
+    background: #ff3333;
+    color: #fff;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+form label { display: block; margin-top: 0.8rem; font-weight: bold; font-size: 0.9rem; }
+input, select, textarea {
+    width: 100%;
+    padding: 0.7rem;
+    margin-top: 0.3rem;
+    background: var(--bg-input);
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.grid-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.product-card {
+    background: #181818;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 0.8rem;
+    height: 180px;
+    object-fit: contain;
+    background-color: #000;
+}
+.product-card:hover { border-color: var(--accent-blue); }
+.product-price { color: var(--accent-green); font-size: 1.2rem; font-weight: bold; margin: 0.5rem 0; }
+.product-meta { color: var(--text-sub); font-size: 0.85rem; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+th, td { border: 1px solid #333; padding: 0.75rem; text-align: left; }
+th { background: #1f1f1f; color: var(--accent-blue); font-family: var(--font-heading); }
+
+
+/* ---- Integración con Bootstrap ---- */
+header .navbar-toggler { border-color: var(--accent-green); }
+header nav a { padding: 0.25rem 0; }
+@media (min-width: 992px) { header nav a { padding: 0; } }
+
+/* ---- Impresión de boleta ---- */
+@media print {
+  header, footer, .d-print-none { display: none !important; }
+  body { background: #fff !important; color: #000 !important; padding-bottom: 0; }
+  .card { background: #fff !important; color: #000 !important; border: none !important; }
+  th { background: #eee !important; color: #000 !important; }
+  th, td { border-color: #bbb !important; }
+  input, textarea, select { background: #fff !important; color: #000 !important; border-color: #bbb !important; }
+}
+
+/* ---- Panel de administración ---- */
+.admin-sidebar { background: #0a0a0a; border-right: 1px solid #222; }
+.admin-link {
+  display: block; padding: 0.5rem 0.75rem; border-radius: 6px;
+  color: var(--text-main); text-decoration: none; font-weight: bold; font-size: 0.9rem;
+}
+.admin-link:hover { background: #1a1a1a; color: var(--text-main); }
+.admin-link.active { background: var(--accent-blue); color: #fff; }
